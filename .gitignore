@@ -2,3 +2,5 @@
 *.aup
 *_data
 *.pdf
+*.tmproj
+*.midi
