@@ -1,8 +1,9 @@
-\version "2.12.3"
-\include "english.ly"
+\version "2.15.4"
+\language "english"
 \pointAndClickOff % don't make notes clickable in the PDF
 
 violins = \relative c'' {
+  \override Score.RehearsalMark #'self-alignment-X = #LEFT
   \transposition c'''
   % Part I
   % 1
@@ -13,22 +14,24 @@ violins = \relative c'' {
   \mark "0:24.105"
   gs'1 ~ | gs4. r8 e2 ~ | e2 ~ e8 fs4. ~ | fs2. ds4 ~   | ds2 e2 ~ | \break
   % 12
-  \mark "0:44.111"
   \key f \minor
   e4 \breathe c2 c'4 ~ | c1 | R1 |
   % 15
-  c1 ~ | c8 r8 r4 bf2 ~ | bf4 g2 af4 ~ | af4 c,2 r4 | \break
+  \override Score.RehearsalMark #'self-alignment-X = #0
+  \mark "0:55.123"
+  c1 ~ | c8 r8 r4 bf2 ~  \break | bf4 g2 af4 ~ | af4 c,2 r4 |
   % 19
   \key cs \minor
+  \override Score.RehearsalMark #'self-alignment-X = #LEFT
   \mark "1:12.138"
-  cs1 | r2 gs'2 ~ | gs2 r4 fs4 ~ | fs4. bs,8 ~ bs2 | cs1 ~ | cs2 ~ cs4. r8 \break
+  cs1 | r2 gs'2 ~ | gs2 r4 fs4 ~ \break | fs4. bs,8 ~ bs2 | cs1 ~ | cs2 ~ cs4. r8
   % 25
   \mark "1:36.133"
-  gs'1 ~ | gs4. r8 e2 ~ | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 c2. |
+  gs'1 ~ | gs4. r8 e2 ~ \break | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 c2. |
   % 31
   \mark "2:00.127"
   \key f \minor
-  r4 f2. | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
+  r4 f2.  \break | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
 
   % Part II
   % 37
@@ -98,7 +101,13 @@ bass = \relative c' {
 }
 
 music = \new StaffGroup <<
-  \tempo 4 = 60
+  % put metronome marks (usu. 1000) above rehearsal marks (usu. 1500)
+  %\override Score.MetronomeMark #'outside-staff-priority = #2000
+  %\override Score.MetronomeMark #'Y-offset = #7
+  %\tempo 4 = 60
+
+  \override Score.RehearsalMark #'Y-offset = #6
+  %\override Score.RehearsalMark #'padding = #2
 
   \new Staff {
     #(set-accidental-style 'neo-modern-cautionary)
@@ -136,11 +145,59 @@ music = \new StaffGroup <<
   }
 >>
 
+\header {
+  title = "Vitrification Order"
+  subtitle = "From the Portal 2 Original Soundtrack"
+  composer = "MIKE MORASKY"
+  arranger = "ELLIOT WINKLER"
+}
+
+\paper {
+  paper-size = "letter"
+  %between-system-padding = #4
+  %between-system-space = 1.2\in
+  %page-limit-inter-system-space = ##t
+  %page-limit-inter-system-space-factor = 1
+  system-system-spacing #'basic-distance = #16
+  ragged-bottom = ##t
+  #(define fonts
+    (make-pango-font-tree "Times New Roman" "Helvetica" "Inconsolata" 1))
+  bookTitleMarkup = \markup {
+    \override #'(baseline-skip . 9)
+    \column {
+      \override #'(baseline-skip . 4.5)
+      \column {
+        \fill-line { \abs-fontsize #32 \bold \fromproperty #'header:title }
+        \fill-line { \abs-fontsize #16 \bold \fromproperty #'header:subtitle }
+      }
+      \override #'(baseline-skip . 3.5)
+      \column {
+        \fill-line {
+          \null % so that the column below will get pushed to the right
+          \concat {
+            \italic "Composed by"
+            " "
+            \bold \fromproperty #'header:composer
+          }
+        }
+        \fill-line {
+          \null % so that the column below will get pushed to the right
+          \concat {
+            \italic "Transcribed by"
+            " "
+            \bold \fromproperty #'header:arranger
+          }
+        }
+      }
+    }
+  }
+}
+
 \score {
   \music
   \midi { }
   \layout {
-    indent = 2.7\cm
-    short-indent = 1.8\cm
+    indent = 1.5\in
+    short-indent = 0.5\in
   }
 }
