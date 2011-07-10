@@ -4,11 +4,13 @@ require 'colored'
 guard 'shell' do
   watch %r{^.+\.ly$} do |m|
     ly = m[0]
+    base = ly.sub(/\.ly$/, "")
     pdf = ly.sub(/\.ly$/, ".pdf")
     ps = ly.sub(/\.ly$/, ".ps")
 
-    cmd = %{lilypond "#{ly}"}
+    cmd = %{lilypond -o "#{base}" "#{ly}"}
     puts "Running command: #{cmd}".cyan
+    Notifier.notify("Converting #{ly}...", :title => "LilyPond")
     result = `#{cmd} 2>&1`
     matches = result.scan(/^#{Regexp.escape(ly)}:(\d+):(\d+): error: (.+)$/)
     if matches.any?
