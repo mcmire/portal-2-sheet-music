@@ -19,7 +19,7 @@ guard 'shell' do
       end
       Notifier.notify(messages.join("\n"), :title => "LilyPond results", :image => :failed)
     else
-      FileUtils.remove(ps)
+      FileUtils.remove(ps) if File.exists?(ps)
       msg = "Successfully generated #{pdf}"
       puts msg.green
       Notifier.notify(msg, :title => "LilyPond results")
