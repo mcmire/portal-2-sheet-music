@@ -14,24 +14,21 @@ violins = \relative c'' {
   \mark "0:24.105"
   gs'1 ~ | gs4. r8 e2 ~ | e2 ~ e8 fs4. ~ | fs2. ds4 ~   | ds2 e2 ~ | \break
   % 12
-  \key f \minor
   e4 \breathe c2 c'4 ~ | c1 | R1 |
   % 15
   \override Score.RehearsalMark #'self-alignment-X = #0
   \mark "0:55.123"
   c1 ~ | c8 r8 r4 bf2 ~  \break | bf4 g2 af4 ~ | af4 c,2 r4 |
   % 19
-  \key cs \minor
   \override Score.RehearsalMark #'self-alignment-X = #LEFT
   \mark "1:12.138"
   cs1 | r2 gs'2 ~ | gs2 r4 fs4 ~ \break | fs4. bs,8 ~ bs2 | cs1 ~ | cs2 ~ cs4. r8
   % 25
   \mark "1:36.133"
-  gs'1 ~ | gs4. r8 e2 ~ \break | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 c2. |
+  gs'1 ~ | gs4. r8 e2 ~ \break | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 bs2. |
   % 31
   \mark "2:00.127"
-  \key f \minor
-  r4 f2.  \break | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
+  r4 f'2.  \break | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
 
   % Part II
   % 37
@@ -49,24 +46,21 @@ brass = \relative c {
   \clef treble
   r2 r4 fs4 | e4 g4 ds4 fs4 |
   % 12
-  \key f \minor
   d4 f2. | R1 |
   % 15
   \clef bass
   r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f4 ~ f16 r16 r8 r4 | R1 | R1 | R1 |
   % 19
-  \key cs \minor
   \times 2/3 { bs,,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2 r2 |
   % 22
   \clef treble
-  r2 r4 fs4 | e4 g4 ds4 fs4 | d4 f4 bs,4. r8 |
+  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es4 bs4. r8 |
   % 25
   \clef bass
   \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2. r4 |
   \clef treble
-  r2 r4 fs4 | e4 g4 ds4 fs4 | d4 f2 r4 |
+  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es2 r4 |
   % 31
-  \key f \minor
   \clef bass
   \times 2/3 { e,4 bf'4 f'4 ~ } f4. r8 | R1 | R1 |
   % 34
@@ -83,17 +77,14 @@ bass = \relative c' {
   % 7
   bs4 cs2. ~ | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 |
   % 12
-  \key f \minor
   gf'4 f4 r4 df4 | ef4 f2 ~ f8 r8 | r2 r4 e4 |
   % 15
   f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c2 r4 |
   % 19
-  \key cs \minor
   cs?2 ~ cs4. r8 | R1 | cs2. r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
   % 25
   bs4 cs2. ~ | r2 r4 bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | fs4 es4 ds4 cs4 |
   % 31
-  \key f \minor
   e4 f2 ~ f8 r8 | r2 r4 e4 | f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c4 ~ c4. r8 |
 
   % Part II
@@ -110,7 +101,7 @@ music = \new StaffGroup <<
   %\override Score.RehearsalMark #'padding = #2
 
   \new Staff {
-    #(set-accidental-style 'neo-modern-cautionary)
+    #(set-accidental-style 'modern-cautionary)
     \override Staff.InstrumentName #'self-alignment-X = #RIGHT
     \override Staff.InstrumentName #'padding = #1.0
     \set Staff.instrumentName = "Violins"
@@ -122,7 +113,7 @@ music = \new StaffGroup <<
   }
 
   \new Staff {
-    #(set-accidental-style 'neo-modern-cautionary)
+    #(set-accidental-style 'modern-cautionary)
     \override Staff.InstrumentName #'self-alignment-X = #RIGHT
     \override Staff.InstrumentName #'padding = #1.0
     \set Staff.instrumentName = "Brass"
@@ -133,7 +124,7 @@ music = \new StaffGroup <<
   }
 
   \new Staff {
-    #(set-accidental-style 'neo-modern-cautionary)
+    #(set-accidental-style 'modern-cautionary)
     \override Staff.InstrumentName #'self-alignment-X = #RIGHT
     \override Staff.InstrumentName #'padding = #1.0
     \set Staff.instrumentName = "Double Bass"
