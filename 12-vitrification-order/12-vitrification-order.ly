@@ -14,7 +14,7 @@ violins = \relative c'' {
   \mark "0:24.105"
   gs'1 ~ | gs4. r8 e2 ~ | e2 ~ e8 fs4. ~ | fs2. ds4 ~   | ds2 e2 ~ | \break
   % 12
-  e4 \breathe c2 c'4 ~ | c1 | R1 |
+  e4 \breathe bs2 bs'4 ~ | bs1 | R1 |
   % 15
   \override Score.RehearsalMark #'self-alignment-X = #0
   \mark "0:55.123"
@@ -46,7 +46,7 @@ brass = \relative c {
   \clef treble
   r2 r4 fs4 | e4 g4 ds4 fs4 |
   % 12
-  d4 f2. | R1 |
+  css4 es2. | R1 |
   % 15
   \clef bass
   r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f4 ~ f16 r16 r8 r4 | R1 | R1 | R1 |
@@ -77,7 +77,7 @@ bass = \relative c' {
   % 7
   bs4 cs2. ~ | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 |
   % 12
-  gf'4 f4 r4 df4 | ef4 f2 ~ f8 r8 | r2 r4 e4 |
+  fs4 es4 r4 cs4 | ds4 es2 ~ es8 r8 | r2 r4 e4 |
   % 15
   f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c2 r4 |
   % 19
