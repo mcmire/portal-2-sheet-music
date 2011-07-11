@@ -12,7 +12,7 @@ sectionOneText = \markup \translate #'(-4 . 0) \pad-markup #2 {
       "(" \tiny { \note #"4" #1 } = 60 ")"
     }
     \line {
-      \tiny "The player inspects the entrance to the old Aperture testing area long since shuttered and abandoned"
+      \tiny "The player lands in the entrance to the old Aperture testing area long since shuttered and abandoned"
     }
   }
 }
@@ -33,11 +33,6 @@ violins = {
   % Part I
   \clef "treble^8"
   \relative gs''' {
-    %\override Score.RehearsalMark #'break-align-symbols = #'(time-signature)
-    %\override Score.MetronomeMark #'Y-offset = #9
-    %\tempo "Ominously" 4 = 60
-    %\mark
-
     % 1 - 0:00.104
     gs1^\sectionOneText ~ | gs2 e2 ~ | e2. fs4 ~ | fs4. bs,8 ~ bs2 | cs1 ~ | cs2. r4 | \break
     % 7 - 0:24.105
@@ -52,13 +47,9 @@ violins = {
     gs'1 ~ | gs4. r8 e2 ~ \break | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 bs2. |
     % 31 - 2:00.127
     r4 f'2.  \break | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
-
-    %\revert Score.RehearsalMark #'break-align-symbols
-    %\revert Score.MetronomeMark #'Y-offset
   }
 
   % Part II
-
   \clef "treble"
   \relative gs'' {
     % 37 - 2:24.056
@@ -69,21 +60,53 @@ violins = {
     c'2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c2 g2 ~ | g1 ~ | g1\> |
     % 55 - 3:35.906
     gs1\! | e2. fs4 ~ | fs2 ds2 ~ | ds4 cs2. ~ | cs1 ~ | cs4 bs2. |
-    % 60 - 4:00.064
+    % 61 - 3:59.906
     gs'1 | e2. fs4 ~ | fs2. ds4 ~ | ds4 cs2 e4 ~ | e1 ~ | e2 ~ e8 r8 c'4 ~ |
-    % 66 - 4:24.061
+    % 67 - 4:23.906
     c2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c2 g2 ~ | g1 ~ | g1\> |
-    % 72 - 4:48.058
+    % 73 - 4:47.906
     gs1\! | e2. fs4 ~ | fs2 ds2 ~ | ds4 cs2. ~ | cs1 ~ | cs4 bs2. |
-    % 78 - 5:12.056
+    % 79 - 5:11.906
     gs'1 | e2. fs4 ~ | fs2. ds4 ~ | ds4 cs2 e4 ~ | e1 ~ | e2 ~ e8 r8 c'4 ~ |
-    % 84 - 5:36.053
+    % 85 - 5:35.906
     c2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c2 g2 ~ | g1 ~ | g1\> |
-    % 96 - 6:00.068
-    R1\!_"fade out..." | R1 | R1 | R1 | R1 | R1 | R1 | %"
+    % 91 - 5:59.906
+    R1\!_"fade out..." | R1*6 | %"
 
+    % END: 97
     \bar "|."
   }
+}
+
+voices = \relative cs'' {
+  R1*36 |
+
+  % Part II
+  \repeat unfold 3 {
+    % 37 - 2:24.056
+    % 55 - 3:35.906
+    % 73 - 4:47.906
+    cs1\! ~ | cs2 bs2 ~ | bs1 | r4 r16 cs8. ~ cs2 ~ | cs1 ~ | cs4 bs2. |
+    % 43 - 2:47.906
+    % 61 - 3:59.906
+    % 79 - 5:11.906
+    cs1 ~ | cs2. bs4 ~ | bs1 ~
+    <<
+      { \voiceOne bs1 ~ }
+      \new Voice { \voiceTwo r4 r16 gs8. ~ gs4 r4 }
+    >> |
+    \oneVoice
+    bs1 ~ | bs2. r4 |
+    % 49 - 3:11.906
+    % 67 - 4:23.906
+    % 85 - 5:35.906
+    c2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c1 ~ | c1 ~ | c1\> |
+  }
+
+  % 91 - 5:59.906
+  R1\! | R1*6
+
+  % END: 97
 }
 
 brass = \relative bs, {
@@ -276,10 +299,7 @@ harp = {
 music = \new StaffGroup <<
   % put metronome marks (usu. 1000) above rehearsal marks (usu. 1500)
   \override Score.MetronomeMark #'outside-staff-priority = #2000
-
   \override Score.RehearsalMark #'self-alignment-X = #LEFT
-  %\override Score.RehearsalMark #'Y-offset = #5.5
-  %\override Score.RehearsalMark #'padding = #2
 
   \new Staff {
     #(set-accidental-style 'modern)
@@ -297,6 +317,18 @@ music = \new StaffGroup <<
     #(set-accidental-style 'modern)
     \override Staff.InstrumentName #'self-alignment-X = #RIGHT
     \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Voices"
+    \set Staff.shortInstrumentName = "Voices"
+    \set Staff.midiInstrument = "pad 4 (choir)"
+    \time 4/4
+    \key cs \minor
+    \voices
+  }
+
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
     \set Staff.instrumentName = "Brass"
     \set Staff.shortInstrumentName = "Brass"
     \set Staff.midiInstrument = "brass section"
@@ -305,17 +337,17 @@ music = \new StaffGroup <<
     \brass
   }
 
-  \new Staff {
-    #(set-accidental-style 'modern)
-    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-    \override Staff.InstrumentName #'padding = #1.0
-    \set Staff.instrumentName = "Synth Lead"
-    \set Staff.shortInstrumentName = "Synth"
-    \set Staff.midiInstrument = "lead 2 (sawtooth)"
-    \time 4/4
-    \key cs \minor
-    \synth
-  }
+  %\new Staff {
+  %  #(set-accidental-style 'modern)
+  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+  %  \override Staff.InstrumentName #'padding = #1.0
+  %  \set Staff.instrumentName = "Synth Lead"
+  %  \set Staff.shortInstrumentName = "Synth"
+  %  \set Staff.midiInstrument = "lead 2 (sawtooth)"
+  %  \time 4/4
+  %  \key cs \minor
+  %  \synth
+  %}
 
   \new Staff {
     #(set-accidental-style 'modern)
@@ -329,29 +361,29 @@ music = \new StaffGroup <<
     \bass
   }
 
-  \new Staff {
-    #(set-accidental-style 'modern)
-    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-    \override Staff.InstrumentName #'padding = #1.0
-    \set Staff.instrumentName = "Synth Bass"
-    \set Staff.shortInstrumentName = "S. Bass"
-    \set Staff.midiInstrument = "lead 2 (sawtooth)"
-    \time 4/4
-    \key cs \minor
-    \synthBass
-  }
+  %\new Staff {
+  %  #(set-accidental-style 'modern)
+  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+  %  \override Staff.InstrumentName #'padding = #1.0
+  %  \set Staff.instrumentName = "Synth Bass"
+  %  \set Staff.shortInstrumentName = "S. Bass"
+  %  \set Staff.midiInstrument = "lead 2 (sawtooth)"
+  %  \time 4/4
+  %  \key cs \minor
+  %  \synthBass
+  %}
 
-  \new Staff {
-    #(set-accidental-style 'modern)
-    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-    \override Staff.InstrumentName #'padding = #1.0
-    \set Staff.instrumentName = "Harp"
-    \set Staff.shortInstrumentName = "Harp"
-    \set Staff.midiInstrument = "harp"
-    \time 4/4
-    \key cs \minor
-    \harp
-  }
+  %\new Staff {
+  %  #(set-accidental-style 'modern)
+  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+  %  \override Staff.InstrumentName #'padding = #1.0
+  %  \set Staff.instrumentName = "Harp"
+  %  \set Staff.shortInstrumentName = "Harp"
+  %  \set Staff.midiInstrument = "harp"
+  %  \time 4/4
+  %  \key cs \minor
+  %  \harp
+  %}
 >>
 
 \header {
@@ -363,14 +395,10 @@ music = \new StaffGroup <<
 
 \paper {
   paper-size = "letter"
-  %between-system-padding = #4
-  %between-system-space = 1.2\in
-  %page-limit-inter-system-space = ##t
-  %page-limit-inter-system-space-factor = 1
   system-system-spacing #'padding = #7
   ragged-bottom = ##t
-  #(define fonts
-    (make-pango-font-tree "Times New Roman" "Helvetica" "Inconsolata" 1))
+
+  #(define fonts (make-pango-font-tree "Times New Roman" "Helvetica" "Inconsolata" 1))
   bookTitleMarkup = \markup {
     \override #'(baseline-skip . 9)
     \column {
