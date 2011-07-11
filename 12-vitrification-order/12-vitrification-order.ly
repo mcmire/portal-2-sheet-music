@@ -173,7 +173,7 @@ synth = \relative c' {
   R1*3 |
   % 52 - 3:23.906
   r2 r4 bf'4 | af4 b4 g4 bf4 | fs?4 a4 e4 b4 |
-  R1*11 |
+  R1*21 |
   % 76 - 4:59.906
   r2 r4 fs'4 | e4 g4 ds4 fs4 | css4 es4 bs2 |
   R1*3 |
@@ -184,61 +184,6 @@ synth = \relative c' {
   r2 r4 bf'4 | af4 b4 g4 bf4 | fs?4 a4 e4 b4 |
   R1*7
   % END: 97
-}
-
-partTwoBass = {
-  % Part II
-  % 37 - 2:24.056
-  bs4 cs2 ~ cs8 r8 | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
-  % 43 - 2:47.906
-  bs4 cs2. | r2. bs4 | cs1 | r2 r4 cs4 | ds4 e4 ds4 cs4 | fs4 es4 ds2 |
-  % 49 - 3:11.906
-  e4 f2 ~ f8 r8 | r2 r4 e4 | f2 ~ f8 r8 r4 | r2 r4 g4 | f4 af4 g4 f4 | g4 f2. |
-  % 55 - 3:35.906
-  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
-  % 61 - 3:59.906
-  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
-  % 67 - 4:23.906
-  e,4 f2 r4 | r2. e4 | f2 r2 | R1*3 |
-  % 73 - 4:47.906
-  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
-  % 79 - 5:11.906
-  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
-  % 85 - 5:35.906
-  e,4 f2 r4 | r2. e4 | f2 r2 | R1*3 |
-  % 91 - 5:59.906
-  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
-  % 97
-  bs4 cs2 r4 |
-  % END: 97
-}
-
-bass = \relative cs, {
-  \clef "bass"
-
-  % Part I
-  % 1 - 0:00.104
-  cs2. r4 | R1 | cs2. r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
-  % 7 - 0:24.105
-  bs4 cs2. | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 |
-  % 12
-  fs4 es4 r4 cs4 | ds4 es2 ~ es8 r8 | r2 r4 e4 |
-  % 15 - 0:55.123
-  f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c2 r4 |
-  % 19 - 1:12.138
-  cs?2 ~ cs4. r8 | R1 | cs2. r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
-  % 25 - 1:36.133
-  bs4 cs2. | r2 r4 bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | fs4 es4 ds4 cs4 |
-  % 31 - 2:00.127
-  e4 f2 ~ f8 r8 | r2 r4 e4 | f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c4 ~ c4. r8 |
-
-  \partTwoBass
-}
-
-synthBass = \relative cs, {
-  \clef "bass"
-  R1*36 |
-  \partTwoBass
 }
 
 harpLickOne = \relative cs {
@@ -296,6 +241,211 @@ harp = {
   \harpLickThree |
 }
 
+partTwoBass = {
+  % Part II
+  % 37 - 2:24.056
+  bs4 cs2 ~ cs8 r8 | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
+  % 43 - 2:47.906
+  bs4 cs2. | r2. bs4 | cs1 | r2 r4 cs4 | ds4 e4 ds4 cs4 | fs4 es4 ds2 |
+  % 49 - 3:11.906
+  e4 f2 ~ f8 r8 | r2 r4 e4 | f2 ~ f8 r8 r4 | r2 r4 g4 | f4 af4 g4 f4 | g4 f2. |
+  % 55 - 3:35.906
+  bs,4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
+  % 61 - 3:59.906
+  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
+  % 67 - 4:23.906
+  e4 f2 r4 | r2. e4 | f2 r2 | R1*3 |
+  % 73 - 4:47.906
+  bs,4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
+  % 79 - 5:11.906
+  bs4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
+  % 85 - 5:35.906
+  e4 f2 r4 | r2. e4 | f2 r2 | R1*3 |
+  % 91 - 5:59.906
+  bs,4 cs2 r4 | r2. bs4 | cs2 r2 | R1*3 |
+  % 97
+  bs4 cs2 r4 |
+  % END: 97
+}
+
+bass = \relative cs, {
+  \clef "bass"
+
+  % Part I
+  % 1 - 0:00.104
+  cs2. r4 | R1 | cs2. r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
+  % 7 - 0:24.105
+  bs4 cs2. | r2. bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 |
+  % 12
+  fs4 es4 r4 cs4 | ds4 es2 ~ es8 r8 | r2 r4 e4 |
+  % 15 - 0:55.123
+  f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c2 r4 |
+  % 19 - 1:12.138
+  cs?2 ~ cs4. r8 | R1 | cs2. r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | ds4 bs2 r4 |
+  % 25 - 1:36.133
+  bs4 cs2. | r2 r4 bs4 | cs2 ~ cs8 r8 r4 | r2 r4 cs4 | ds4 e4 ds4 cs4 | fs4 es4 ds4 cs4 |
+  % 31 - 2:00.127
+  e4 f2 ~ f8 r8 | r2 r4 e4 | f2 ~ f16 r16 r8 r4 | r2 r4 bf4 | g4 af4 g4 f4 | e4 c4 ~ c4. r8 |
+
+  \partTwoBass
+}
+
+synthBass = \relative cs, {
+  \clef "bass"
+  R1*36 |
+  \partTwoBass
+}
+
+pulse = \relative cs {
+  \clef bass
+
+  R1*36 |
+
+  % Part II
+  % 37 - 2:24.056
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 12 { bs16 } |
+
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { fs16 }
+  \repeat unfold 4 { es16 }
+  \repeat unfold 8 { ds16 }  |
+
+  \repeat unfold 4 { e16 }
+  \repeat unfold 12 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { e16 }  |
+  \repeat unfold 16 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { g16 }  |
+  \repeat unfold 4 { f16 }
+  \repeat unfold 4 { af16 }
+  \repeat unfold 4 { g16 }
+  \repeat unfold 4 { f16 }  |
+  \repeat unfold 4 { g16 }
+  \repeat unfold 12 { f16 } |
+
+  % 55 - 3:35.906
+  \repeat unfold 4 { bs,16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 12 { bs16 } |
+
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { fs16 }
+  \repeat unfold 4 { es16 }
+  \repeat unfold 8 { ds16 }  |
+
+  \repeat unfold 4 { e16 }
+  \repeat unfold 12 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { e16 }  |
+  \repeat unfold 16 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { e16 }  |
+  \repeat unfold 4 { f16 }
+  \repeat unfold 4 { af16 }
+  \repeat unfold 4 { g16 }
+  \repeat unfold 4 { f16 }  |
+  \repeat unfold 4 { g16 }
+  \repeat unfold 12 { e16 } |
+
+  % 73 - 4:47.906
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 12 { bs16 } |
+
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { fs16 }
+  \repeat unfold 4 { es16 }
+  \repeat unfold 8 { ds16 }  |
+
+  \repeat unfold 4 { e16 }
+  \repeat unfold 12 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { e16 }  |
+  \repeat unfold 16 { f16 } |
+  \repeat unfold 12 { f16 }
+  \repeat unfold 4 { e16 }  |
+  \repeat unfold 4 { f16 }
+  \repeat unfold 4 { af16 }
+  \repeat unfold 4 { g16 }
+  \repeat unfold 4 { f16 }  |
+  \repeat unfold 4 { g16 }
+  \repeat unfold 12 { e16 } |
+
+  % 91 - 5:59.906
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 }
+  \repeat unfold 4 { bs16 }  |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 16 { cs16 } |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { e16 }
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 4 { cs16 }  |
+  \repeat unfold 4 { ds16 }
+  \repeat unfold 12 { bs16 } |
+
+  \repeat unfold 4 { bs16 }
+  \repeat unfold 12 { cs16 } |
+}
+
 music = \new StaffGroup <<
   % put metronome marks (usu. 1000) above rehearsal marks (usu. 1500)
   \override Score.MetronomeMark #'outside-staff-priority = #2000
@@ -337,17 +487,17 @@ music = \new StaffGroup <<
     \brass
   }
 
-  %\new Staff {
-  %  #(set-accidental-style 'modern)
-  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-  %  \override Staff.InstrumentName #'padding = #1.0
-  %  \set Staff.instrumentName = "Synth Lead"
-  %  \set Staff.shortInstrumentName = "Synth"
-  %  \set Staff.midiInstrument = "lead 2 (sawtooth)"
-  %  \time 4/4
-  %  \key cs \minor
-  %  \synth
-  %}
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Synth Lead"
+    \set Staff.shortInstrumentName = "Synth"
+    \set Staff.midiInstrument = "lead 2 (sawtooth)"
+    \time 4/4
+    \key cs \minor
+    \synth
+  }
 
   \new Staff {
     #(set-accidental-style 'modern)
@@ -361,29 +511,41 @@ music = \new StaffGroup <<
     \bass
   }
 
-  %\new Staff {
-  %  #(set-accidental-style 'modern)
-  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-  %  \override Staff.InstrumentName #'padding = #1.0
-  %  \set Staff.instrumentName = "Synth Bass"
-  %  \set Staff.shortInstrumentName = "S. Bass"
-  %  \set Staff.midiInstrument = "lead 2 (sawtooth)"
-  %  \time 4/4
-  %  \key cs \minor
-  %  \synthBass
-  %}
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Synth Bass"
+    \set Staff.shortInstrumentName = "S. Bass"
+    \set Staff.midiInstrument = "lead 2 (sawtooth)"
+    \time 4/4
+    \key cs \minor
+    \synthBass
+  }
 
-  %\new Staff {
-  %  #(set-accidental-style 'modern)
-  %  \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-  %  \override Staff.InstrumentName #'padding = #1.0
-  %  \set Staff.instrumentName = "Harp"
-  %  \set Staff.shortInstrumentName = "Harp"
-  %  \set Staff.midiInstrument = "harp"
-  %  \time 4/4
-  %  \key cs \minor
-  %  \harp
-  %}
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Harp"
+    \set Staff.shortInstrumentName = "Harp"
+    \set Staff.midiInstrument = "harp"
+    \time 4/4
+    \key cs \minor
+    \harp
+  }
+
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Pulse"
+    \set Staff.shortInstrumentName = "Pulse"
+    \set Staff.midiInstrument = "lead 2 (sawtooth)"
+    \time 4/4
+    \key cs \minor
+    \pulse
+  }
 >>
 
 \header {
