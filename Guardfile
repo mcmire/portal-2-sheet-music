@@ -3,7 +3,7 @@ require 'colored'
 
 guard 'shell' do
   watch %r{^.+\.ly$} do |m|
-    ly = m[0]
+    ly = File.expand_path(m[0])
     base = ly.sub(/\.ly$/, "")
     pdf = ly.sub(/\.ly$/, ".pdf")
     ps = ly.sub(/\.ly$/, ".ps")
