@@ -5,36 +5,64 @@
 % 126ms is the offset for the beat for Part I
 %
 
+sectionOneText = \markup \translate #'(-4 . 0) \pad-markup #2 {
+  \column {
+    \line {
+      \bold "Ominously"
+      "(" \tiny { \note #"4" #1 } = 60 ")"
+    }
+    \line {
+      \tiny "The player inspects the entrance to the old Aperture testing area long since shuttered and abandoned"
+    }
+  }
+}
+
+sectionTwoText = \markup \translate #'(-0.5 . 0) \pad-markup #1 {
+  \override #'(baseline-skip . 2.5)
+  \column {
+    \line {
+      \bold "Grittier"
+    }
+    \line {
+      \tiny "The player throws caution to the wind and moves into the area"
+    }
+  }
+}
+
 violins = {
   % Part I
   \clef "treble^8"
   \relative gs''' {
-    \tempo 4 = 60
+    %\override Score.RehearsalMark #'break-align-symbols = #'(time-signature)
+    %\override Score.MetronomeMark #'Y-offset = #9
+    %\tempo "Ominously" 4 = 60
+    %\mark
 
-    \mark "Section I"
     % 1 - 0:00.104
-    gs1 ~ | gs2 e2 ~ | e2. fs4 ~ | fs4. bs,8 ~ bs2 | cs1 ~ | cs2. r4 | \break
+    gs1^\sectionOneText ~ | gs2 e2 ~ | e2. fs4 ~ | fs4. bs,8 ~ bs2 | cs1 ~ | cs2. r4 | \break
     % 7 - 0:24.105
     gs'1 ~ | gs4. r8 e2 ~ | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | \break
     % 12
     e4 \breathe bs2 bs'4 ~ | bs1 | R1 |
     % 15 - 0:55.123
-    c1 ~ | c8 r8 r4 bf2 ~  \break | bf4 g2 af4 ~ | af4 c,2 r4 |
+    c1 ~ | c8 r8 r4 bf2 ~ \break | bf4 g2 af4 ~ | af4 c,2 r4 |
     % 19 - 1:12.138
     cs1 | r2 gs'2 ~ | gs2 r4 fs4 ~ \break | fs4. bs,8 ~ bs2 | cs1 ~ | cs2 ~ cs4. r8
     % 25 - 1:36.133
     gs'1 ~ | gs4. r8 e2 ~ \break | e2 ~ e8 fs4. ~ | fs2. ds4 ~ | ds2 e2 ~ | e4 bs2. |
     % 31 - 2:00.127
     r4 f'2.  \break | r4 c'2. ~ | c2. r4 | r4. bf8 ~ bf2 ~ | bf4 g2 af4 ~ | af4 c,4 ~ c4. r8 | \bar "||"
+
+    %\revert Score.RehearsalMark #'break-align-symbols
+    %\revert Score.MetronomeMark #'Y-offset
   }
 
   % Part II
 
   \clef "treble"
   \relative gs'' {
-    \mark "Section II"
     % 37 - 2:24.056
-    gs1 | e2. fs4 ~ | fs2 ds2 ~ | ds4 cs2. ~ | cs1 ~ | cs4 bs4 ~ bs4. r8 |
+    gs1^\sectionTwoText | e2. fs4 ~ | fs2 ds2 ~ | ds4 cs2. ~ | cs1 ~ | cs4 bs4 ~ bs4. r8 |
     % 43 - 2:47.906
     gs'1 | e2. fs4 ~ | fs2. ds4 ~ | ds4 cs2 e4 ~ | e1 ~ | e2 ~ e8 r8 r4 |
     % 49 - 3:11.906
@@ -248,10 +276,9 @@ harp = {
 music = \new StaffGroup <<
   % put metronome marks (usu. 1000) above rehearsal marks (usu. 1500)
   \override Score.MetronomeMark #'outside-staff-priority = #2000
-  \override Score.MetronomeMark #'Y-offset = #9
 
   \override Score.RehearsalMark #'self-alignment-X = #LEFT
-  \override Score.RehearsalMark #'Y-offset = #5.5
+  %\override Score.RehearsalMark #'Y-offset = #5.5
   %\override Score.RehearsalMark #'padding = #2
 
   \new Staff {
@@ -340,7 +367,7 @@ music = \new StaffGroup <<
   %between-system-space = 1.2\in
   %page-limit-inter-system-space = ##t
   %page-limit-inter-system-space-factor = 1
-  system-system-spacing #'basic-distance = #16
+  system-system-spacing #'padding = #7
   ragged-bottom = ##t
   #(define fonts
     (make-pango-font-tree "Times New Roman" "Helvetica" "Inconsolata" 1))
@@ -349,7 +376,7 @@ music = \new StaffGroup <<
     \column {
       \override #'(baseline-skip . 4.5)
       \column {
-        \fill-line { \abs-fontsize #32 \bold \fromproperty #'header:title }
+        \fill-line { \abs-fontsize #28 \bold \fromproperty #'header:title }
         \fill-line { \abs-fontsize #16 \bold \fromproperty #'header:subtitle }
       }
       \override #'(baseline-skip . 3.5)
@@ -377,9 +404,14 @@ music = \new StaffGroup <<
 
 \score {
   \music
-  \midi { }
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 60 4)
+    }
+  }
   \layout {
-    indent = 1.5\in
+    indent = 1.0\in
     short-indent = 0.5\in
     \context {
       \Staff \RemoveEmptyStaves
