@@ -8,11 +8,11 @@
 sectionOneText = \markup \translate #'(-4 . 0) \pad-markup #2 {
   \column {
     \line {
-      \bold "Ominously"
+      \bold "Massively ominous"
       "(" \tiny { \note #"4" #1 } = 60 ")"
     }
     \line {
-      \tiny "The player lands in the entrance to the old Aperture testing area long since shuttered and abandoned"
+      \tiny "Chell lands in the entrance to the old Aperture testing area shuttered and abandoned long ago"
     }
   }
 }
@@ -24,7 +24,7 @@ sectionTwoText = \markup \translate #'(-0.5 . 0) \pad-markup #1 {
       \bold "Grittier"
     }
     \line {
-      \tiny "The player throws caution to the wind and moves into the area"
+      \tiny "Chell throws caution to the wind and moves into the area"
     }
   }
 }
@@ -109,55 +109,70 @@ voices = \relative cs'' {
   % END: 97
 }
 
-brass = \relative bs, {
+horns = \relative fs' {
+  \clef treble
+
   % Part I
   % 1
-  \clef bass
-  R1*6 |
-  % 7 - 0:24.105
-  \times 2/3 { bs4 fs'4 cs'4 ~ } cs2 ~ | R1 | R1 |
+  R1*9 |
   % 10
-  \clef treble
-  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es2. | R1 |
-  % 15 - 0:55.123
-  \clef bass
-  r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f4 ~ f16 r16 r8 r4 | R1 | R1 | R1 |
-  % 19 - 1:12.138
-  \times 2/3 { bs,,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2 r2 |
+  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es2. |
+  R1*9 |
   % 22
-  \clef treble
   r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es4 bs4. r8 |
-  % 25 - 1:36.133
-  \clef bass
-  \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2. r4 |
-  \clef treble
-  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es2 r4 |
-  % 31 - 2:00.127
-  \clef bass
-  \times 2/3 { e,4 bf'4 f'4 ~ } f4. r8 | R1 | R1 |
-  % 34
-  \clef treble
-  r2 r4 bf4 | g4 f4 g4 af4 | g4 f4 e4 c8 r8 |
+  R1*3 |
+  % 28
+  r2 r4 fs'4 | e4 g4 ds4 fs4 | css4 es2 r4 |
+  R1*3 |
+  r2 r4 bf'4 | g4 f4 g4 af4 | g4 f4 e4 c8 r8 |
 
   % Part II
   % 37 - 2:24.056
-  \clef bass
-  \times 2/3 { bs,4 fs'4 cs'4 ~ } cs4. r8 | r2 r4 \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 ~ cs8 r8  |
+  R1*3 |
   % 40 - 2:35.906
-  \clef treble
   r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es4 bs2 |
-  % 43 - 2:47.906
-  \clef bass
-  \times 2/3 { bs,4 fs'4 cs'4 ~ } cs4. r8 | r2 r4 \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 ~ cs8 r8 |
+  R1*3
   % 46 - 2:59.906
-  \clef treble
-  r2 r4 fs4 | e4 g4 ds4 fs4 | css4 es4 bs2 |
-  % 49 - 3:11.906
-  \clef bass
-  \times 2/3 { e,4 bf'4 f'4 ~ } f4. r8 | r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f2 r4 |
+  r2 r4 fs'4 | e4 g4 ds4 fs4 | css4 es4 bs2 |
   % 52 - 3:23.906
-  \clef treble
-  r2 r4 bf4 | af4 b4 g4 bf4 | fs?4 a4 e4 b4 |
+  r2 r4 bf'4 | af4 b4 g4 bf4 | fs?4 a4 e4 b4 |
+  % 55 - 3:35.906
+  R1*43
+  % END: 97
+}
+
+trombone = \relative bs, {
+  \clef bass
+
+  % Part I
+  % 1
+  R1*6 |
+  % 7 - 0:24.105
+  \times 2/3 { bs4 fs'4 cs'4 ~ } cs2 |
+  R1*6 |
+  % 14
+  r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f4 ~ f16 r16 r8 r4 |
+  R1*3 |
+  % 19 - 1:12.138
+  \times 2/3 { bs,,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2 r2 |
+  R1*3
+  % 25 - 1:36.133
+  \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 | r2 r8 bs,8 ~ bs16 fs'8. | cs'2. r4 |
+  R1*3
+  % 31 - 2:00.127
+  \times 2/3 { e,4 bf'4 f'4 ~ } f4. r8 | R1 | R1 |
+  R1*3
+
+  % Part II
+  % 37 - 2:24.056
+  \times 2/3 { bs,,4 fs'4 cs'4 ~ } cs4. r8 | r2 r4 \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 ~ cs8 r8  |
+  R1*3
+  % 43 - 2:47.906
+  \times 2/3 { bs,4 fs'4 cs'4 ~ } cs4. r8 | r2 r4 \times 2/3 { bs,4 fs'4 cs'4 ~ } cs2 ~ cs8 r8 |
+  R1*3
+  % 49 - 3:11.906
+  \times 2/3 { e,4 bf'4 f'4 ~ } f4. r8 | r2 r4 \times 2/3 { e,4 bf'4 f'4 ~ } f2 r4 |
+  R1*3
   % 55 - 3:35.906
   R1*43
   % END: 97
@@ -239,6 +254,9 @@ harp = {
   \harpLickThree |
   % 51
   \harpLickThree |
+  % 53
+  R1*43
+  % END: 97
 }
 
 partTwoBass = {
@@ -479,12 +497,24 @@ music = \new StaffGroup <<
     #(set-accidental-style 'modern)
     \override Staff.InstrumentName #'self-alignment-X = #RIGHT
     \override Staff.InstrumentName #'padding = #1.0
-    \set Staff.instrumentName = "Brass"
-    \set Staff.shortInstrumentName = "Brass"
+    \set Staff.instrumentName = "Horns"
+    \set Staff.shortInstrumentName = "Horns"
     \set Staff.midiInstrument = "brass section"
     \time 4/4
     \key cs \minor
-    \brass
+    \horns
+  }
+
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Trombone"
+    \set Staff.shortInstrumentName = "Tbn."
+    \set Staff.midiInstrument = "brass section"
+    \time 4/4
+    \key cs \minor
+    \trombone
   }
 
   \new Staff {
