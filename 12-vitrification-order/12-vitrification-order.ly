@@ -201,72 +201,33 @@ synth = \relative c' {
   % END: 97
 }
 
-#(define (callback-to-fix-slur-position-using control-pts)
-  (lambda (grob)
-    (let* (
-        ;; have we been split?
-        (orig (ly:grob-original grob))
-
-        ;; if yes, get the split pieces (our siblings)
-        (siblings (if (ly:grob? orig) (ly:spanner-broken-into orig) '())))
-
-      (if (and (>= (length siblings) 2)
-               (eq? (car (last-pair siblings)) grob))
-        (ly:grob-set-property! grob 'control-points control-pts)))))
-
 harpLickOne = \relative cs {
-  \change Staff = "down"
   r4
-  \times 2/3 { r16
-    %\once \override Slur #'height-limit = #20.0
-    %\once \override Slur #'ratio = #10
-    %\once \override Slur #'eccentricity = #2
-    %\once \override Slur #'position = #
-
-    %\once \override Slur #'control-points = #'((1 . 1) (17 . 19) (54 . 25) (68 . 1))
-    %\once \override Slur #'details #'extra-object-collision-distance = 3
-
-    \once \override Slur #'after-line-breaking =
-      #(callback-to-fix-slur-position-using '((12 . 15) (15 . 17) (22 . 10) (23 . 3)))
-    cs16([ e16] }
-  \times 2/3 {
-    %\once \override Beam #'positions = #'(9 . 11)
-    g16[ \change Staff = "up" cs16 e16]
-  }
-  \times 2/3 {
-    %\once \override Beam #'positions = #'(-5 . -3)
-    g16[ cs16 e16]
-  }
+  \times 2/3 { r16 cs16([ e16] }
+  \times 2/3 { g16[ cs16 e16] }
+  \times 2/3 { g16[ cs16 e16] }
   \times 2/3 { cs16[ cs'16 e16] }
   \times 2/3 { cs8. }
   \times 2/3 { \grace { cs,,32[ gs'32 cs32] } es16[ cs16 gs16] } |
-  e32[ cs16 \change Staff = "down" gs32] ~ gs32[ e16.] c4) r2 |
+  e32[ cs16 gs32] ~ gs32[ e16.] c4) r2 |
 }
 
 harpLickTwo = \relative cs {
-  \change Staff = "down"
   \times 2/3 { r16 cs16([ e16] }
-  \times 2/3 {
-    %\once \override Beam #'positions = #'(-2 . 1)
-    g16_[ \change Staff = "up" cs16  e16]
-  }
+  \times 2/3 { g16[ cs16 e16] }
   \times 2/3 { g16[ cs16 e16] }
   \times 2/3 { cs16[ cs'16 e16] }
   cs8
   \grace { cs,32[ ds32 e32] } ds16. gs,32
-  \change Staff = "down"
   es8 gs,8) |
 }
 
 harpLickThree = \relative f {
-  \change Staff = "down"
   r4
-  \once \override Slur #'after-line-breaking =
-    #(callback-to-fix-slur-position-using '((12 . 13) (13 . 15) (16 . 15) (20 . 11)))
-  \times 2/3 { f16(_[ af16 \change Staff = "up" c16] }
+  \times 2/3 { f16([ af16 c16] }
   f16 af16
   \times 8/11 { c16 f16 af16 c16 f16 af16 f16 c16 af16 f16 c16 } |
-  af16 f16 c16 \change Staff = "down" af16) r4 r2
+  af16 f16 c16 af16) r4 r2
 }
 
 harp = {
@@ -588,39 +549,30 @@ music = \new StaffGroup <<
     \synthBass
   }
 
-  \new GrandStaff <<
-    \override GrandStaff.InstrumentName #'self-alignment-X = #RIGHT
-    \override GrandStaff.InstrumentName #'padding = #1.0
-    \set GrandStaff.instrumentName = "Harp"
-    \set GrandStaff.shortInstrumentName = "Harp"
-    \set GrandStaff.midiInstrument = "harp"
-    \new Staff = "up" {
-      #(set-accidental-style 'modern)
-      \time 4/4
-      \key cs \minor
-      \clef treble
-      \harp
-    }
-    \new Staff = "down" {
-      #(set-accidental-style 'modern)
-      \time 4/4
-      \key cs \minor
-      \clef bass
-      s1*98
-    }
-  >>
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Harp"
+    \set Staff.shortInstrumentName = "Harp"
+    \set Staff.midiInstrument = "harp"
+    \time 4/4
+    \key cs \minor
+    \clef treble
+    \harp
+  }
 
-%  \new Staff {
-%    #(set-accidental-style 'modern)
-%    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-%    \override Staff.InstrumentName #'padding = #1.0
-%    \set Staff.instrumentName = "Pulse"
-%    \set Staff.shortInstrumentName = "Pulse"
-%    \set Staff.midiInstrument = "lead 2 (sawtooth)"
-%    \time 4/4
-%    \key cs \minor
-%    \pulse
-%  }
+  \new Staff {
+    #(set-accidental-style 'modern)
+    \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \override Staff.InstrumentName #'padding = #1.0
+    \set Staff.instrumentName = "Pulse"
+    \set Staff.shortInstrumentName = "Pulse"
+    \set Staff.midiInstrument = "lead 2 (sawtooth)"
+    \time 4/4
+    \key cs \minor
+    \pulse
+  }
 >>
 
 \header {
