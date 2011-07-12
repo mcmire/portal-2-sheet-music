@@ -17,7 +17,7 @@ sectionOneText = \markup \translate #'(-4 . 0) \pad-markup #2 {
   }
 }
 
-sectionTwoText = \markup \translate #'(-0.5 . 0) \pad-markup #1 {
+sectionTwoText = \markup \translate #'(-0.5 . 0) \pad-markup #2 {
   \override #'(baseline-skip . 2.5)
   \column {
     \line {
@@ -71,7 +71,12 @@ violins = {
     % 85 - 5:35.906
     c2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c2 g2 ~ | g1 ~ | g1\> |
     % 91 - 5:59.906
-    R1\!_"fade out..." | R1*6 | %"
+    \override TextSpanner #'(bound-details left text) = "fade out"
+    \override TextSpanner #'(bound-details left-broken text) = ##f
+    % this is a complete hack!!
+    % http://lilypond.org/doc/v2.14/Documentation/notation/spanners
+    \override TextSpanner #'(bound-details right X) = #108
+    R1\!\startTextSpan | cs1 | cs1 | cs1 | cs1 | cs1 | cs1\stopTextSpan |
 
     % END: 97
     \bar "|."
@@ -589,6 +594,8 @@ music = \new StaffGroup <<
 
   #(define fonts (make-pango-font-tree "Times New Roman" "Helvetica" "Inconsolata" 1))
   bookTitleMarkup = \markup {
+    % baseline-skip applies to the markups inside of a column so we cheat here
+    % this took me FOREVER to figure this out
     \override #'(baseline-skip . 9)
     \column {
       \override #'(baseline-skip . 4.5)
