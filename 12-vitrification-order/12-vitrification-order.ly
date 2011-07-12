@@ -71,12 +71,12 @@ violins = {
     % 85 - 5:35.906
     c2. b4 ~ | b4 c4 af2 ~ | af4 bf2 af4 | c2 g2 ~ | g1 ~ | g1\> |
     % 91 - 5:59.906
-    \override TextSpanner #'(bound-details left text) = "fade out"
+    \override TextSpanner #'(bound-details left text) = \markup { \italic "fade out" }
     \override TextSpanner #'(bound-details left-broken text) = ##f
     % this is a complete hack!!
     % http://lilypond.org/doc/v2.14/Documentation/notation/spanners
     \override TextSpanner #'(bound-details right X) = #108
-    R1\!\startTextSpan | cs1 | cs1 | cs1 | cs1 | cs1 | cs1\stopTextSpan |
+    R1\!\startTextSpan | R1 | R1 | R1 | R1 | R1 | R1\stopTextSpan |
 
     % END: 97
     \bar "|."
@@ -319,148 +319,28 @@ pulse = \relative cs {
 
   % Part II
   % 37 - 2:24.056
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 12 { bs16 } |
-
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { fs16 }
-  \repeat unfold 4 { es16 }
-  \repeat unfold 8 { ds16 }  |
-
-  \repeat unfold 4 { e16 }
-  \repeat unfold 12 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { e16 }  |
-  \repeat unfold 16 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { g16 }  |
-  \repeat unfold 4 { f16 }
-  \repeat unfold 4 { af16 }
-  \repeat unfold 4 { g16 }
-  \repeat unfold 4 { f16 }  |
-  \repeat unfold 4 { g16 }
-  \repeat unfold 12 { f16 } |
+  \repeat unfold 4 { bs16 } \repeat unfold 12 { cs16 } |
+  \repeat unfold 12 { cs16 } \repeat unfold 4 { bs16 }  |
+  cs1_\markup { \italic "continue repeating as before" } |
+  cs1 | ds4 e4 ds4 cs4 | ds4 bs2. |
+  bs4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | fs4 es4 ds2 |
+  e4 f2. | f2. e4 | f1 | f2 g2 | f4 af4 g4 f4 | g4 f2. |
 
   % 55 - 3:35.906
-  \repeat unfold 4 { bs,16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 12 { bs16 } |
-
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { fs16 }
-  \repeat unfold 4 { es16 }
-  \repeat unfold 8 { ds16 }  |
-
-  \repeat unfold 4 { e16 }
-  \repeat unfold 12 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { e16 }  |
-  \repeat unfold 16 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { e16 }  |
-  \repeat unfold 4 { f16 }
-  \repeat unfold 4 { af16 }
-  \repeat unfold 4 { g16 }
-  \repeat unfold 4 { f16 }  |
-  \repeat unfold 4 { g16 }
-  \repeat unfold 12 { e16 } |
+  bs,4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | ds4 bs2. |
+  bs4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | fs4 es4 ds2 |
+  e4 f2. | f2. e4 | f1 | f2. e4 | f4 af4 g4 f4 | g4 e2. |
 
   % 73 - 4:47.906
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 12 { bs16 } |
-
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { fs16 }
-  \repeat unfold 4 { es16 }
-  \repeat unfold 8 { ds16 }  |
-
-  \repeat unfold 4 { e16 }
-  \repeat unfold 12 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { e16 }  |
-  \repeat unfold 16 { f16 } |
-  \repeat unfold 12 { f16 }
-  \repeat unfold 4 { e16 }  |
-  \repeat unfold 4 { f16 }
-  \repeat unfold 4 { af16 }
-  \repeat unfold 4 { g16 }
-  \repeat unfold 4 { f16 }  |
-  \repeat unfold 4 { g16 }
-  \repeat unfold 12 { e16 } |
+  bs4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | ds4 bs2. |
+  bs4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | fs4 es4 ds2 |
+  e4 f2. | f2. e4 | f1 | f2. e4 | f4 af4 g4 f4 | g4 e2. |
 
   % 91 - 5:59.906
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
-  \repeat unfold 12 { cs16 }
-  \repeat unfold 4 { bs16 }  |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 16 { cs16 } |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { e16 }
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 4 { cs16 }  |
-  \repeat unfold 4 { ds16 }
-  \repeat unfold 12 { bs16 } |
+  bs4 cs2. | cs2. bs4 | cs1 | cs1 | ds4 e4 ds4 cs4 | ds4 bs2. |
 
   % 97
-  \repeat unfold 4 { bs16 }
-  \repeat unfold 12 { cs16 } |
+  bs4 cs2. |
 
   % END: 97
 }
